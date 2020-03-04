@@ -1,0 +1,38 @@
+<h1>ホテル一覧</h1>
+
+<form class="hotel_search" id="hotel_search" action="/hotels" accept-charset="UTF-8" method="get">
+  <input name="utf8" type="hidden" value="✓">
+
+  <input type="search" name="q[name_cont]" id="q_name_cont" placeholder="ホテル名を入力">
+  <input type="submit" name="commit" value="検索" data-disable-with="Search" class="btn btn-success"> |
+
+  <input type="search" name="q[prefecture_name_cont]" id="q_prefecture_name_cont" placeholder="都道府県名を入力">
+  <input type="submit" name="commit" value="検索" data-disable-with="Search" class="btn btn-success">
+</form>
+
+ <div class="container-fluid">
+   <div class="row">
+      <div class="col-md-3">
+         <div class="card" style="width: 18rem;">
+           <div class="card-body">
+             <p class="card-text">
+               <% @hotels.each do |hotel| %>
+                      <p><%= hotel.name %></p>
+                      <p>
+                      <%= image_tag(hotel.picture_url, width: 300) if hotel.picture.present? %>
+                      </p>
+
+                      <p>詳細:<%= hotel.description %></p>
+                      <p>部屋数:<%= hotel.number_of_rooms %></p>
+                    <% end %>
+                  </p>
+              </div>
+             <div class="card-body">
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+              </div> 
+          </div>
+      </div>
+   </div>
+ </div>
+ 
