@@ -1,4 +1,4 @@
-<h1>ホテル一覧</h1>
+<h1 class="ml-4">ホテル一覧</h1>
 
 <form class="hotel_search" id="hotel_search" action="/hotels" accept-charset="UTF-8" method="get">
   <input name="utf8" type="hidden" value="✓">
@@ -12,27 +12,27 @@
 
  <div class="container-fluid">
    <div class="row">
+     <% @hotels.each do |hotel| %>
       <div class="col-md-3">
          <div class="card" style="width: 18rem;">
            <div class="card-body">
              <p class="card-text">
-               <% @hotels.each do |hotel| %>
                       <p><%= hotel.name %></p>
                       <p>
-                      <%= image_tag(hotel.picture_url, width: 300) if hotel.picture.present? %>
+                      <%= image_tag(hotel.picture_url, width: 250) if hotel.picture.present? %>
                       </p>
 
                       <p>詳細:<%= hotel.description %></p>
                       <p>部屋数:<%= hotel.number_of_rooms %></p>
-                    <% end %>
                   </p>
               </div>
              <div class="card-body">
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+              <a href="#" class="card-link">詳細</a>
+              <a href="#" class="card-link">レビューを見る</a>
               </div> 
           </div>
       </div>
+      <% end %>
    </div>
  </div>
  
