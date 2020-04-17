@@ -8,6 +8,7 @@ resources :prefectures
 
 resources :hotels do
   resources :reviews
+  resources :reservations
 end
 
 root 'hotels#index'

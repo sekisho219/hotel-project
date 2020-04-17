@@ -1,35 +1,43 @@
-<h1 class="ml-4">ホテル一覧</h1>
+<h1 class="ml-4"><span>ホテル一覧</span></h1>
 
+<div class="d-flex flex-row-reverse bd-highlight">
 <form class="hotel_search" id="hotel_search" action="/hotels" accept-charset="UTF-8" method="get">
   <input name="utf8" type="hidden" value="✓">
 
-  <input type="search" name="q[name_cont]" id="q_name_cont" placeholder="ホテル名を入力">
+<div class="p-2 bd-highlight">
+  <input class="search" type="search" name="q[name_cont]" id="q_name_cont" placeholder="ホテル名を入力">
   <input type="submit" name="commit" value="検索" data-disable-with="Search" class="btn btn-success"> |
-
-  <input type="search" name="q[prefecture_name_cont]" id="q_prefecture_name_cont" placeholder="都道府県名を入力">
+  <input class="search" type="search" name="q[prefecture_name_cont]" id="q_prefecture_name_cont" placeholder="都道府県名を入力">
   <input type="submit" name="commit" value="検索" data-disable-with="Search" class="btn btn-success">
+</div>
+
 </form>
+</div>
 
  <div class="container-fluid">
    <div class="row">
      <% @hotels.each do |hotel| %>
       <div class="col-md-3">
          <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            <p class="text-center h4"><em><%= hotel.name %></em></p>
+          </div>
            <div class="card-body">
              <p class="card-text">
-                      <p><%= hotel.name %></p>
                       <p>
                       <%= image_tag(hotel.picture_url, width: 250) if hotel.picture.present? %>
                       </p>
 
-                      <p>詳細:<%= hotel.description %></p>
-                      <p>部屋数:<%= hotel.number_of_rooms %></p>
+                      <p>詳細:   <%= hotel.description %></p>
+                      <p>部屋数:   <%= hotel.number_of_rooms %></p>
                   </p>
               </div>
-             <div class="card-body">
-              <a href="#" class="card-link">詳細</a>
-              <a href="#" class="card-link">レビューを見る</a>
-              </div> 
+              <div class="d-flex justify-content-around">
+                <div class="card-footer">
+                  <%= link_to '詳細', hotel_path(hotel) %> :
+                  <%= link_to ' レビューを見る', hotel_reviews_path(hotel) %> 
+                </div>
+              </div>
           </div>
       </div>
       <% end %>

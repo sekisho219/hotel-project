@@ -1,10 +1,11 @@
+
 <p>
-  <strong>名前:</strong>
+  <strong>ホテル名:</strong>
   <%= @hotel.name %>
 </p>
 
 <p>
-  	<%= image_tag(@hotel.picture_url, width: 300) if @hotel.picture.present? %>
+  	<img class="hotpic" width="300" src="/uploads/hotel/picture/1/1.png">
 </p>
 
 <p>
@@ -22,4 +23,5 @@
   <%= @hotel.number_of_rooms %>
 </p>
 
-<%= link_to 'Back', hotels_path %> 
+<a class="btn btn-success" href="/hotels/1/reservations/new">予約する</a> |
+<a class="btn btn-success" href="/hotels">戻る</a>

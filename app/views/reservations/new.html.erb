@@ -1,0 +1,55 @@
+<h1>ホテルの予約</h1>
+
+<p>
+  <strong>名前</strong>
+  <div class="field">
+	  <input id="reservation_name" type="text" size="70" name="reservation[name]" placeholder="代表者様のお名前を入力してください">
+  </div>
+</p>
+
+<p>
+  <strong>メールアドレス</strong>
+  <div class="field">
+	<input id="reservation_email" size="70" type="text" name="reservation[email]" placeholder="メールアドレスを入力してください">
+  </div>
+</p>
+
+<p>
+ <div class="field">
+  <%= form_with(model: [@hotel, @reservation], local: true) do |form| %>
+    <%= form.label :チェックイン時間 %>
+    <%= form.datetime_select :checkin, use_month_numbers: true %>
+  <% end %>
+ </div>
+</p>
+
+<p>
+ <div class="field">
+  <%= form_with(model: [@hotel, @reservation], local: true) do |form| %>
+    <%= form.label :チェックアウト時間 %>
+    <%= form.datetime_select :checkout, use_month_numbers: true %>
+  <% end %>
+ </div>
+</p>
+
+<p>
+ <div class="btn-group">
+  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    駐車場の利用
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">あり</a>
+    <a class="dropdown-item" href="#">なし</a>
+  </div>
+</div>
+</p>
+
+<p>
+ <div class="field">
+	<input id="reservation_number" type="text" name="reservation[number]" placeholder="人数">
+ </div>
+</p>
+
+<div class="actions">
+    <input type="submit" name="commit" value="予約送信" data-disable-with="予約送信" class="btn btn-info">
+</div>

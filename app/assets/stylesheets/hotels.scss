@@ -1,3 +1,22 @@
 // Place all the styles related to the hotels controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+span {
+     background: linear-gradient(transparent 70%, #8eff8e 70%); 
+}
+.card-header{
+	background-color: #8eff8e;
+}
+.card-footer{
+	background-color: #8eff8e;
+	border-radius: 10px 20px 30px 40px;
+}
+.search{
+	background-color: transparent #8effff70;
+}
+.hotpic{
+	border-radius: 50%;
+	position:  absolute; 
+	left:  300px;
+	top: 80px;
+}
